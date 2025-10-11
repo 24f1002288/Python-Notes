@@ -169,11 +169,23 @@ Access denied. Account locked.
 ## Q5: Prime Number Generator
 
 **Problem Statement:**  
-Write a program that finds all prime numbers up to a given integer N.
+Write a program that finds all prime numbers up to a given integer N. A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
 
 **Challenge:**  
 - Write the solution using nested for loops.  
 - Write the solution using a while loop for the outer loop and a for loop for the inner loop.
+
+### Input/Output Specification
+
+**Input:**
+- N (int) - The upper limit to search for prime numbers (inclusive).
+
+**Output:**
+- All prime numbers from 2 up to N, printed on a single line and separated by spaces.
+
+**Notes:**
+- Remember that 1 is not a prime number.
+- To check if a number `num` is prime, test divisibility from 2 to `num - 1`.
 
 **Sample Case:**
 
@@ -190,14 +202,25 @@ Expected Output:
 ## Q6: Temperature Data Analyzer
 
 **Problem Statement:**  
-You are given a list of daily maximum temperatures for a week. Write a program to analyze this data.
+You are given a list of daily maximum temperatures for a week. Write a program to analyze this data. It should calculate the average temperature, find the highest and lowest temperatures, and count how many days were "hot" (e.g., above 25°C).
 
 **Challenge:** Implement the analysis using a for loop.
 
-**Predefined Input:**
+### Input/Output Specification
+
+**Predefined Input (inside your code):**
 ```python
 [22, 26.5, 19, 28, 25, 31.2, 24]
 ```
+
+**User Input:**
+- `hot_threshold` (float) - The temperature to consider as "hot".
+
+**Output:**
+- The highest temperature.  
+- The lowest temperature.  
+- The average temperature for the week, formatted to two decimal places.  
+- The number of hot days.
 
 **Sample Case:**
 
@@ -217,9 +240,25 @@ Number of hot days: 2
 ## Q7: Text Reverser and Palindrome Checker
 
 **Problem Statement:**  
-Write a program that takes a string from the user, reverses it, and checks if it’s a palindrome.
+Write a program that takes a string from the user, reverses it, and then checks if the original string is a palindrome (reads the same forwards and backward).
 
-**Challenge:** Provide two implementations — using a for loop and using a while loop.
+**Challenge:**  
+Provide two implementations for reversing the string:
+- Using a for loop, iterating through the original string and building a new, reversed string.
+- Using a while loop with two index pointers (one at the start, one at the end).
+
+### Input/Output Specification
+
+**Input:**
+- `text` (str) - The string to be checked.
+
+**Output:**
+- The reversed string.  
+- A message indicating whether the original string is a palindrome.
+
+**Notes:**
+- Ignore case and spaces when checking for palindromes.
+- Preprocess the string by converting to lowercase and removing spaces.
 
 **Sample Case 1:**
 
@@ -248,9 +287,27 @@ The string "Hello World" is not a palindrome.
 ## Q8: Shopping Cart Simulator (List Version)
 
 **Problem Statement:**  
-Create a command-line shopping cart using lists to store product data.
+Create a command-line shopping cart using lists to store product data. The program should display a list of available items and their prices. The user can add items to their cart by typing the item name. The program should keep running, allowing multiple additions, until they type 'checkout'.
 
-**Challenge:** Use parallel lists and loops for adding, checking, and printing.
+**Challenge:**  
+Use parallel lists to store item names and prices. Use a while loop for the shopping session and a for loop to print the receipt.
+
+### Input/Output Specification
+
+**Predefined Input (inside your code):**
+```python
+products = ['apple', 'banana', 'milk', 'bread']
+prices = [0.50, 0.25, 3.50, 2.75]
+```
+
+**User Input:**
+- A series of strings representing items to add to the cart.
+- The string 'checkout' to end the session.
+
+**Output:**
+- Confirmation message after adding an item.  
+- Error message for invalid items.  
+- A final receipt listing each item and the total cost.
 
 **Sample Case:**
 
@@ -271,7 +328,21 @@ milk: $3.5
 bread: $2.75
 Enter an item to add to the cart, or 'checkout' to finish: apple
 apple added to cart.
-...
+Enter an item to add to the cart, or 'checkout' to finish: milk
+milk added to cart.
+Enter an item to add to the cart, or 'checkout' to finish: apple
+apple added to cart.
+Enter an item to add to the cart, or 'checkout' to finish: cheese
+Sorry, 'cheese' is not a valid item.
+Enter an item to add to the cart, or 'checkout' to finish: banana
+banana added to cart.
+Enter an item to add to the cart, or 'checkout' to finish: checkout
+--- YOUR RECEIPT ---
+apple: $0.50
+milk: $3.50
+apple: $0.50
+banana: $0.25
+--------------------
 TOTAL: $4.75
 ```
 
@@ -280,11 +351,23 @@ TOTAL: $4.75
 ## Q9: Pomodoro Timer
 
 **Problem Statement:**  
-Create a simple text-based Pomodoro timer.
+Create a simple text-based Pomodoro timer. The Pomodoro technique uses a timer to break work into 25-minute intervals separated by short breaks.
 
-**Challenge:** Use a for loop to handle sessions.
+**Challenge:** Use a for loop to handle the cycles of work and break periods.
 
-**Sample Case (shortened for demo):**
+### Input/Output Specification
+
+**Input:**
+- `sessions` (int) - The number of Pomodoro sessions to run.
+
+**Output:**
+- Messages indicating the start and end of each work and break period for each session.
+
+**Notes:**
+- Use the `time` module and `time.sleep(seconds)` to simulate time.  
+- For faster testing, use short pauses (e.g., 5 seconds for work, 2 for breaks).
+
+**Sample Case:**
 
 ```
 Input:
@@ -292,9 +375,13 @@ Input:
 
 Expected Output:
 Session 1: Work time (25 minutes). Focus!
+(Program pauses)
 Session 1: Break time (5 minutes). Relax!
+(Program pauses)
 Session 2: Work time (25 minutes). Focus!
+(Program pauses)
 Session 2: Break time (5 minutes). Relax!
+(Program pauses)
 Pomodoro complete!
 ```
 
@@ -303,9 +390,32 @@ Pomodoro complete!
 ## Q10: Grade Calculator
 
 **Problem Statement:**  
-Write a program that calculates the final letter grade for a student.
+Write a program that calculates the final letter grade for a student based on a series of scores.
 
-**Challenge:** Use loops for input and validation.
+**Challenge:** Use a for loop to get the score inputs and calculate their sum.
+
+### Input/Output Specification
+
+**Input:**
+- `num_scores` (int) - Number of scores to be entered.  
+- A series of `num_scores` floats, representing the scores.
+
+**Output:**
+- The average score, formatted to two decimal places.  
+- The final letter grade.
+
+**Notes:**
+- Validate that each score is between 0 and 100.  
+- Use a while loop for validation inside the for loop.
+
+**Grading Scale:**
+```
+90–100: A
+80–89.9: B
+70–79.9: C
+60–69.9: D
+< 60: F
+```
 
 **Sample Case:**
 
@@ -320,4 +430,6 @@ Expected Output:
 Average score: 85.00
 Final Grade: B
 ```
+
+
 
